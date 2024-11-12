@@ -9,12 +9,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Material App Bar'),
+          title: const Text(
+            'Material App Bar',
+            style: TextStyle(color: Colors.white),
+          ),
+          backgroundColor: Colors.blue,
         ),
-        body: const Center(
-          child: Text('Hello World'),
+        body: Center(
+          child: FilledButton(onPressed: () {}, child: const Text("Click Me")),
         ),
       ),
     );
