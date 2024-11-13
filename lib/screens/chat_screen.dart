@@ -21,8 +21,32 @@ class ChatScreen extends StatelessWidget {
         ),
         backgroundColor: Colors.blue,
       ),
-      body: Center(
-        child: FilledButton(onPressed: () {}, child: const Text("Click Me")),
+      body: _ChatView(),
+    );
+  }
+}
+
+class _ChatView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        child: Column(
+          children: [
+            Expanded(
+                child: Container(
+              color: Colors.grey[400],
+              child: ListView.builder(
+                itemCount: 100,
+                itemBuilder: (context, index) {
+                  return Text('Message $index');
+                },
+              ),
+            )),
+            const Text("Chat Input"),
+          ],
+        ),
       ),
     );
   }
