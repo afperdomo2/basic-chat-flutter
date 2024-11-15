@@ -18,9 +18,7 @@ class ChatScreen extends StatelessWidget {
         ),
         title: const Text(
           'Salem',
-          style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: Colors.blue,
       ),
       body: _ChatView(),
     );
