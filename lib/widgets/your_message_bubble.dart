@@ -49,7 +49,7 @@ class _ImageBubble extends StatelessWidget {
             width: size.width * 0.7,
             height: 150,
             color: Colors.grey[300],
-            child: const LoadingImage(),
+            child: const _LoadingImage(),
           );
         },
       ),
@@ -57,8 +57,8 @@ class _ImageBubble extends StatelessWidget {
   }
 }
 
-class LoadingImage extends StatelessWidget {
-  const LoadingImage({super.key});
+class _LoadingImage extends StatelessWidget {
+  const _LoadingImage();
 
   @override
   Widget build(BuildContext context) {
