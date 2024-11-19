@@ -29,7 +29,7 @@ class YourMessageBubble extends StatelessWidget {
 }
 
 class _ImageBubble extends StatelessWidget {
-  const _ImageBubble({super.key});
+  const _ImageBubble();
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,27 @@ class _ImageBubble extends StatelessWidget {
         width: size.width * 0.7,
         height: 150,
         fit: BoxFit.cover,
+        loadingBuilder: (context, child, loadingProgress) {
+          if (loadingProgress == null) return child;
+          return Container(
+            width: size.width * 0.7,
+            height: 150,
+            color: Colors.grey[300],
+            child: const LoadingImage(),
+          );
+        },
       ),
+    );
+  }
+}
+
+class LoadingImage extends StatelessWidget {
+  const LoadingImage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: CircularProgressIndicator(),
     );
   }
 }
