@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class MessageFieldBox extends StatelessWidget {
@@ -15,7 +13,7 @@ class MessageFieldBox extends StatelessWidget {
     );
 
     final inputDecoration = InputDecoration(
-      hintText: 'Type a message2',
+      hintText: 'Type a message',
       border: outlineInputBorder,
       contentPadding: const EdgeInsets.symmetric(horizontal: 20),
       suffixIcon: IconButton(
