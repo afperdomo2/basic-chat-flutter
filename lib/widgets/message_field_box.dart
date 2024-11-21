@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class MessageFieldBox extends StatelessWidget {
@@ -5,18 +7,23 @@ class MessageFieldBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textController = TextEditingController();
+    final focusNode = FocusNode();
+
     final outlineInputBorder = OutlineInputBorder(
       borderRadius: BorderRadius.circular(30),
     );
 
     final inputDecoration = InputDecoration(
-      hintText: 'Type a message',
+      hintText: 'Type a message2',
       border: outlineInputBorder,
       contentPadding: const EdgeInsets.symmetric(horizontal: 20),
       suffixIcon: IconButton(
         icon: const Icon(Icons.send),
         onPressed: () {
-          print("Send message");
+          final textValue = textController.text;
+          print("--> Send message $textValue");
+          textController.clear();
         },
       ),
     );
@@ -24,12 +31,16 @@ class MessageFieldBox extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: TextFormField(
+        onTapOutside: (e) {
+          focusNode.unfocus();
+        },
+        focusNode: focusNode,
+        controller: textController,
         decoration: inputDecoration,
         onFieldSubmitted: (value) {
           print('Submitted: $value');
-        },
-        onChanged: (value) {
-          print('Changed: $value');
+          textController.clear();
+          focusNode.requestFocus();
         },
       ),
     );
