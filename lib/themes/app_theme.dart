@@ -25,7 +25,7 @@ class AppTheme {
     return ThemeData(
       colorSchemeSeed: _colorThemes[selectedColor],
       appBarTheme: AppBarTheme(
-        backgroundColor: _colorThemes[selectedColor].withOpacity(0.2),
+        backgroundColor: _colorThemes[selectedColor].withOpacity(0.4),
       ),
     );
   }
