@@ -5,9 +5,10 @@ class ChatProvider extends ChangeNotifier {
   final List<Message> _messages = [
     Message(text: 'Hello, how are you?', isMe: true, isImage: false),
     Message(text: 'I am fine, thank you!', isMe: false, isImage: false),
+    Message(text: 'What are you doing?', isMe: true, isImage: false),
   ];
 
-  List<Message> get messages => _messages;
+  List<Message> get messageList => _messages;
 
   void addMessage(Message message) {
     _messages.add(message);
