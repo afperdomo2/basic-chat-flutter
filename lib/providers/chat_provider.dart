@@ -10,8 +10,9 @@ class ChatProvider extends ChangeNotifier {
 
   List<Message> get messageList => _messages;
 
-  void addMessage(Message message) {
-    _messages.add(message);
+  void addMessage(String text) {
+    final newMessage = Message(text: text, isMe: true, isImage: false);
+    _messages.add(newMessage);
     notifyListeners();
   }
 }

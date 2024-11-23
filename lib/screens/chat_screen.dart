@@ -49,7 +49,11 @@ class _ChatView extends StatelessWidget {
                     : YourMessageBubble(message: message);
               },
             )),
-            const MessageFieldBox(),
+            MessageFieldBox(
+              onSend: (value) {
+                chatProvider.addMessage(value);
+              },
+            ),
           ],
         ),
       ),
