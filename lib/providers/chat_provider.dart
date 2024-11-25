@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yes_no_app/models/message.dart';
+import 'package:yes_no_app/services/yesno_service.dart';
 
 class ChatProvider extends ChangeNotifier {
   final ScrollController scrollController = ScrollController();
@@ -18,8 +19,23 @@ class ChatProvider extends ChangeNotifier {
     }
     final newMessage = Message(text: text, isMe: true, isImage: false);
     _messages.add(newMessage);
+    notifyAndMoveToBottom();
+    if (text.endsWith("?")) {
+      await generateAnswer();
+    }
+  }
+
+  Future<void> generateAnswer() async {
+    final response = await YesNoService().getAnswer();
+    final newMessage =
+        Message(text: response.answer, isMe: false, isImage: false);
+    _messages.add(newMessage);
+    notifyAndMoveToBottom();
+  }
+
+  void notifyAndMoveToBottom() {
     notifyListeners();
-    await moveScroolToBottom();
+    moveScroolToBottom();
   }
 
   Future<void> moveScroolToBottom() async {

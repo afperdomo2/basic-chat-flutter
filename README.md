@@ -19,4 +19,5 @@ samples, guidance on mobile development, and a full API reference.
 
 ```sh
 flutter pub add provider
+flutter pub add dio
 ```
