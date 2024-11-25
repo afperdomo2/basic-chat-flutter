@@ -10,19 +10,18 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const url =
+        'https://img.freepik.com/premium-vector/black-cat-sitting-white-background-vector-illustration-cat_939485-399.jpg?w=1060';
+
     return Scaffold(
       appBar: AppBar(
         leading: const Padding(
           padding: EdgeInsets.all(8.0),
           child: CircleAvatar(
-            backgroundImage: NetworkImage(
-              'https://img.freepik.com/premium-vector/black-cat-sitting-white-background-vector-illustration-cat_939485-399.jpg?w=1060',
-            ),
+            backgroundImage: NetworkImage(url),
           ),
         ),
-        title: const Text(
-          'Salem',
-        ),
+        title: const Text('Salem'),
       ),
       body: _ChatView(),
     );
@@ -41,6 +40,7 @@ class _ChatView extends StatelessWidget {
           children: [
             Expanded(
                 child: ListView.builder(
+              controller: chatProvider.scrollController,
               itemCount: chatProvider.messageList.length,
               itemBuilder: (context, index) {
                 final message = chatProvider.messageList[index];
