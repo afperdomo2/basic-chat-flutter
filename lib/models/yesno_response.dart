@@ -24,6 +24,7 @@ class YesNoResponse {
       };
 
   Message toMessage() {
-    return Message(text: answer, isMe: false, isImage: false);
+    final text = answer == 'yes' ? 'Sí' : 'No';
+    return Message(text: text, isMe: false, imageUrl: image);
   }
 }

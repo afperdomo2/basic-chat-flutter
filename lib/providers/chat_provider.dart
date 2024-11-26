@@ -6,9 +6,8 @@ class ChatProvider extends ChangeNotifier {
   final ScrollController scrollController = ScrollController();
 
   final List<Message> _messages = [
-    Message(text: 'Hello, how are you?', isMe: true, isImage: false),
-    Message(text: 'I am fine, thank you!', isMe: false, isImage: false),
-    Message(text: 'What are you doing?', isMe: true, isImage: false),
+    Message(text: 'Hola Salem, ¿cómo estás?', isMe: true),
+    Message(text: '¡Hola! Estoy bien, gracias :3', isMe: false),
   ];
 
   List<Message> get messageList => _messages;
@@ -17,7 +16,7 @@ class ChatProvider extends ChangeNotifier {
     if (text.trim().isEmpty) {
       return;
     }
-    final newMessage = Message(text: text, isMe: true, isImage: false);
+    final newMessage = Message(text: text, isMe: true);
     _messages.add(newMessage);
     notifyAndMoveToBottom();
     if (text.endsWith("?")) {

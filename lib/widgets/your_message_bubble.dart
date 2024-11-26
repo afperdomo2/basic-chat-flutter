@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:yes_no_app/models/message.dart';
 
 class YourMessageBubble extends StatelessWidget {
-  final Message message;
-
   const YourMessageBubble({super.key, required this.message});
+
+  final Message message;
 
   @override
   Widget build(BuildContext context) {
@@ -25,14 +25,16 @@ class YourMessageBubble extends StatelessWidget {
         ),
       ),
       const SizedBox(height: 5),
-      const _ImageBubble(),
+      if (message.imageUrl != null) _ImageBubble(message.imageUrl ?? ''),
       const SizedBox(height: 5),
     ]);
   }
 }
 
 class _ImageBubble extends StatelessWidget {
-  const _ImageBubble();
+  const _ImageBubble(this.imageUrl);
+
+  final String imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +44,7 @@ class _ImageBubble extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: Image.network(
-        "https://yesno.wtf/assets/yes/12-e4f57c8f172c51fdd983c2837349f853.gif",
+        imageUrl,
         width: size.width * 0.7,
         height: 150,
         fit: BoxFit.cover,
