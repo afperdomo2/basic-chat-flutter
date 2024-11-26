@@ -26,10 +26,8 @@ class ChatProvider extends ChangeNotifier {
   }
 
   Future<void> generateAnswer() async {
-    final response = await YesNoService().getAnswer();
-    final newMessage =
-        Message(text: response.answer, isMe: false, isImage: false);
-    _messages.add(newMessage);
+    final generatedAnswer = await YesNoService().getAnswer();
+    _messages.add(generatedAnswer);
     notifyAndMoveToBottom();
   }
 
