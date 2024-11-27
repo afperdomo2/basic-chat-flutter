@@ -1,21 +1,12 @@
-# yes_no_app
+# Basic Chat con consumo de API
 
-A new Flutter project.
+<img src="assets/basic.jpg" alt="Descripción de la imagen" width="300"/>
 
-## Getting Started
+- Creación de un chat básico en donde al realizarle preguntas al usuario, este responde con un “si” o un “no”, acompañado de un gif. Estos últimos datos son consumidos a través de la API: <https://yesno.wtf/api>.
 
-This project is a starting point for a Flutter application.
+- Se realiza uso de **screens**, implementación de temas, widgets reutilizables, manejo del estado global con **Provider**, consumo de **APIs** con la librería de **dio**.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
-### Instalar Provider
+## Instalar librerías en flutter
 
 ```sh
 flutter pub add provider
